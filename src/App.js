@@ -21,10 +21,8 @@ function App () {
   }
   const checkValidationName = () => {
     if (newProducts.name.trim().length > 1
-      &&
-      !Number(newProducts.name.trim())
-      &&
-      Number(newProducts.name.trim()) !== 0) {
+      && !newProducts.name.trim().match(/[0-9]/g))
+    {
       return true;
     } else {
       setNewProducts({ name: '', price: newProducts.price, id: uuid() });
